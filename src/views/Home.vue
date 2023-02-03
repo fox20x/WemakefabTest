@@ -1,42 +1,41 @@
 <template>
   <main class="main">
-    <component-filter />
+    <component-filter @filter="filter" />
 
-    <div class="catalog">
-      <div class="grid-container catalog__container">
-        <div class="grid-item catalog-item catalog-item_empty">
-          <p class="b_40 text_uppercase">Bestsellers:</p>
-          <p class="b_40">34</p>
-        </div>
-        <div class="grid-item catalog-item catalog-item_empty"></div>
-        <div class="grid-item catalog-item catalog-item_big">
-          <card class="card_big" />
-        </div>
-        <div class="grid-item catalog-item">
-          <card />
-        </div>
-        <div class="grid-item catalog-item">
-          <card />
-        </div>
-        <div class="grid-item catalog-item">
-          <card />
-        </div>
-        <div class="grid-item catalog-item">
-          <card />
-        </div>
-      </div>
-    </div>
+    <component-catalog :products="products" />
   </main>
 </template>
 
 <script>
-import Filter from "../components/Filter.vue";
-import Card from "../components/cards/Standart.vue";
+import { mapActions } from "vuex";
+
+import Filter from "@/components/Filter.vue";
+import Catalog from "../components/Catalog.vue";
 
 export default {
+  data() {
+    return {
+      products: [],
+    };
+  },
+  methods: {
+    ...mapActions(["getProducts"]),
+    filter() {
+      return "";
+    },
+    async productsLoad() {
+      const result = await this.getProducts();
+      if (result.ok) {
+        this.products = result.data;
+      }
+    },
+  },
+  async mounted() {
+    await this.productsLoad();
+  },
   components: {
     "component-filter": Filter,
-    Card,
+    "component-catalog": Catalog,
   },
 };
 </script>

@@ -8,15 +8,15 @@
 </template>
 
 <script>
-import Header from '../components/Header.vue';
-import Footer from '../components/Footer.vue';
-import Modal from '../components/Modal.vue';
+import Header from "../components/Header.vue";
+import Footer from "../components/Footer.vue";
+import Modal from "../components/Modal.vue";
 
 export default {
   components: {
-    'component-header': Header,
-    'component-footer': Footer,
-    'component-modal': Modal,
+    "component-header": Header,
+    "component-footer": Footer,
+    "component-modal": Modal,
   },
 };
 </script>

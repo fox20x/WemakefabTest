@@ -1,12 +1,17 @@
 <template>
-  <div class="select-wrapper open">
+  <div class="select-wrapper">
     <label class="label">{{ label }}</label>
     <div class="input">
       <span class="input__value">{{ component_value }}</span>
       <ul class="input__options" @click="select">
-        <li class="input__option">Sneakers</li>
-        <li class="input__option">Sneakers</li>
-        <li class="input__option">Sneakers</li>
+        <li
+          v-for="(option, i) in options"
+          :key="i"
+          :value="option"
+          class="input__option"
+        >
+          {{ option }}
+        </li>
       </ul>
     </div>
     <i class="icon arrow-down"></i>
@@ -18,6 +23,7 @@ export default {
   props: {
     label: { type: String, default: "Label" },
     value: { type: String, default: "" },
+    options: { type: Array, default: () => [] },
   },
   data() {
     return {
@@ -27,7 +33,6 @@ export default {
   watch: {
     component_value() {
       this.$emit("input", this.component_value);
-      console.log(this.component_value);
     },
   },
   methods: {
@@ -35,12 +40,11 @@ export default {
       const el = e.target.closest(".input__option");
       if (!el) return;
 
-      const value = el.innerHTML;
-      console.log(value);
+      const value = el.value;
       if (!value) return;
 
       this.component_value = value;
-    }
+    },
   },
 };
 </script>

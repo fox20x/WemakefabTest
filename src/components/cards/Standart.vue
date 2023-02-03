@@ -1,17 +1,23 @@
 <template>
   <div class="card">
-    <img src="@/assets/img/catalog/Converse_Kids_70.png" class="card__image" />
-    <div class="card__sale">
-      <span class="m_16">Sale −40%</span>
+    <img :src="picture" class="card__image" />
+    <div class="card__sale" v-if="sale">
+      <span class="m_16">Sale {{ sale }}%</span>
     </div>
     <div class="card__name">
-      <span class="r_16">Converse Kids 70</span>
+      <span class="r_16">{{ name }}</span>
     </div>
     <div class="card__price">
-      <span class="sb_16">$49.99</span>
-      <span class="sb_16 card__price-prev">$49.99</span>
+      <span class="sb_16">{{ currency }}{{ cost.current }}</span>
+      <span class="sb_16 card__price-prev" v-if="cost.previous"
+        >${{ cost.previous }}</span
+      >
     </div>
-    <button class="button button_catalog card__button">
+    <button
+      class="button button_catalog card__button"
+      :class="{ button_catalog_added: in_cart }"
+      @click="setToCart"
+    >
       <span>Add to basket</span>
       <i class="icon"></i>
     </button>
@@ -19,9 +25,63 @@
 </template>
 
 <script>
-export default {
+import { mapActions } from "vuex";
 
+function calcCurrentPrice(price, sale) {
+  if (!price && !sale) return { current: 0, previous: 0 };
+
+  const sale_boolean = Boolean(sale);
+
+  if (!sale_boolean) {
+    return { current: price, previous: 0 };
+  }
+
+  const sale_percent = price * (sale / 100);
+  const current = price + sale_percent;
+
+  return { current: +current.toFixed(2), previous: price };
 }
+
+export default {
+  props: {
+    id: { type: Number },
+    name: { type: String, default: "Name" },
+    picture: { type: String, default: "Picture" },
+    price: { type: Number, default: 0 },
+    currency: { type: String, default: "$" },
+    sale: { type: Number, default: 0 },
+  },
+  data() {
+    return {
+      cost: calcCurrentPrice(this.price, this.sale),
+      in_cart: false,
+    };
+  },
+  watch: {
+    "$store.state.cart"() {
+      this.findToCart();
+    },
+  },
+  methods: {
+    ...mapActions(["setProductToCart"]),
+    findToCart() {
+      const products_from_cart = this.$store.state.cart;
+
+      this.in_cart = Boolean(products_from_cart.find((p) => p.id == this.id));
+    },
+    setToCart() {
+      this.setProductToCart({
+        id: this.id,
+        name: this.name,
+        picture: this.picture,
+        cost: this.cost,
+      });
+    },
+  },
+  mounted() {
+    this.findToCart();
+  },
+};
 </script>
 
 <style></style>

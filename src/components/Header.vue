@@ -18,7 +18,9 @@
       <div class="grid-item header__item">
         <div class="header__profile-cart">
           <span class="r_18">Profile</span>
-          <span class="r_18" data-modal_id="modal_cart">Basket(2)</span>
+          <span class="r_18" data-modal_id="modal_cart"
+            >Basket({{ products_count }})</span
+          >
         </div>
       </div>
     </div>
@@ -26,7 +28,18 @@
 </template>
 
 <script>
-export default {}
+export default {
+  data() {
+    return {
+      products_count: 0,
+    };
+  },
+  watch: {
+    "$store.state.cart"() {
+      this.products_count = this.$store.state.cart.length;
+    },
+  },
+};
 </script>
 
 <style></style>
