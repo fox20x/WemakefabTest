@@ -17,9 +17,9 @@
           :id="product.id"
           :name="product.name"
           :picture="product.picture"
-          :price="product.price"
           :currency="product.currency"
           :sale="product.sale"
+          :cost="product.cost"
         />
       </div>
     </div>

@@ -13,6 +13,11 @@ declare global {
 
   type ProductId = number;
 
+  interface Cost {
+    current: number;
+    previous: number;
+  }
+
   interface Product {
     id: ProductId;
     name: string;
@@ -20,6 +25,7 @@ declare global {
     price: number;
     currency: string;
     sale: number;
+    cost: Cost;
     category: Array<string>;
   }
 
@@ -27,10 +33,7 @@ declare global {
     id: number;
     name: string;
     picture: string;
-    cost: {
-      current: number;
-      previous: number;
-    };
+    cost: Cost;
   }
 
   type Cart = Array<CartItem>;

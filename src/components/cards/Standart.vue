@@ -27,33 +27,18 @@
 <script>
 import { mapActions } from "vuex";
 
-function calcCurrentPrice(price, sale) {
-  if (!price && !sale) return { current: 0, previous: 0 };
-
-  const sale_boolean = Boolean(sale);
-
-  if (!sale_boolean) {
-    return { current: price, previous: 0 };
-  }
-
-  const sale_percent = price * (sale / 100);
-  const current = price + sale_percent;
-
-  return { current: +current.toFixed(2), previous: price };
-}
-
 export default {
   props: {
     id: { type: Number },
     name: { type: String, default: "Name" },
     picture: { type: String, default: "Picture" },
-    price: { type: Number, default: 0 },
     currency: { type: String, default: "$" },
     sale: { type: Number, default: 0 },
+
+    cost: { type: Object, default: () => ({ current: 0, previous: 0 }) },
   },
   data() {
     return {
-      cost: calcCurrentPrice(this.price, this.sale),
       in_cart: false,
     };
   },

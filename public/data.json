@@ -38,7 +38,8 @@
     "picture": "/catalog/Converse_Winter_Chuck_70.png",
     "price": 99.99,
     "currency": "$",
-    "sale": -20
+    "sale": -20,
+    "category": ["Winter"]
   },
   {
     "id": 6,
@@ -46,7 +47,8 @@
     "picture": "/catalog/Converse_Winter_Chuck_70_Full_Black.png",
     "price": 129.99,
     "currency": "$",
-    "sale": 0
+    "sale": 0,
+    "category": ["Winter"]
   },
   {
     "id": 7,
@@ -54,6 +56,7 @@
     "picture": "/catalog/Converse_Winter_Chuck_70_Black_White.png",
     "price": 99.99,
     "currency": "$",
-    "sale": 0
+    "sale": 0,
+    "category": ["Winter"]
   }
 ]

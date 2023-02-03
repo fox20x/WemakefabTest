@@ -20,7 +20,6 @@ export default {
   watch: {
     component_value() {
       this.$emit("input", this.component_value);
-      console.log(this.component_value);
     },
   },
   methods: {
