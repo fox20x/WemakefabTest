@@ -1,0 +1,51 @@
+[
+  {
+    "name": "Converse Chuck 70 Renew High Top",
+    "picture": "./catalog/Converse Chuck_70_Renew_High_Top.png",
+    "price": 84.99,
+    "currency": "$",
+    "sale": -40
+  },
+  {
+    "name": "Converse Kids 70",
+    "picture": "./catalog/Converse_Kids_70.png",
+    "price": 49.99,
+    "currency": "$",
+    "sale": 0
+  },
+  {
+    "name": "Converse Chuck 70",
+    "picture": "./catalog/Converse_Chuck_70.png",
+    "price": 49.99,
+    "currency": "$",
+    "sale": 0
+  },
+  {
+    "name": "Converse Pro Chuck 80",
+    "picture": "./catalog/Converse_Pro_Chuck_80.png",
+    "price": 99.99,
+    "currency": "$",
+    "sale": -35
+  },
+  {
+    "name": "Converse Winter Chuck 70",
+    "picture": "./catalog/Converse_Winter_Chuck_70.png",
+    "price": 99.99,
+    "currency": "$",
+    "sale": -20
+  },
+  {
+    "name": "Converse Winter Chuck 70 Full Black",
+    "picture": "./catalog/Converse_Winter_Chuck_70_Full_Black.png",
+    "price": 129.99,
+    "currency": "$",
+    "sale": 0
+  },
+  {
+    "name": "Converse Winter Chuck 70 Black/White",
+    "picture": "./catalog/Converse_Winter_Chuck_70_Black_White.png",
+    "price": 99.99,
+    "currency": "$",
+    "sale": 0
+  }
+]

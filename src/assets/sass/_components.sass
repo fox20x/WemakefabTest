@@ -1,0 +1,292 @@
+/* Icons */
+.icon
+  display: inline-block
+  background:
+    repeat: no-repeat
+    position: center
+    size: contain
+  &.close
+    width: 20px
+    height: 20px
+    background-image: url('#{$path_images}/icons/close.svg')
+  &.arrow-down
+    width: 20px
+    height: 20px
+    background-image: url('#{$path_images}/icons/arrow-down.svg')
+  &.add
+    width: 16px
+    height: 16px
+    background-image: url('#{$path_images}/icons/add.svg')
+  &.added
+    width: 14px
+    height: 10px
+    background-image: url('#{$path_images}/icons/added.svg')
+  &.arrow-right
+    width: 7px
+    height: 14px
+    background-image: url('#{$path_images}/icons/arrow-right.svg')
+
+
+/* Button */
+.button
+  @include font(500, 18px, 100%)
+  text-transform: uppercase
+  white-space: nowrap
+  color: $color_white
+  @include center-block
+  display: inline-flex
+  min-width: 60px
+  height: 60px
+  padding: 20px
+  background: $color_dark
+  &:hover
+    background: lighten($color_dark, 20%)
+  &:disabled
+    background: lighten($color_dark, 80%)
+    pointer-events: none
+
+  &_catalog
+    justify-content: space-between
+    background: #2E2E2E
+    .icon
+      @extend .add
+    &_added
+      color: $color_black
+      background: $color_white
+      border: 1px solid $color_black
+      .icon
+        @extend .added
+      &:hover
+        background: darken($color_white, 20%)
+
+
+/* Input */
+%input-wrapper
+  @include font(500, 18px, 21px)
+  position: relative
+  width: 100%
+  max-width: 335px
+
+  .label
+    font: inherit
+    display: block
+    width: 100%
+    margin-bottom: 20px
+
+  .input
+    font: inherit
+    width: 100%
+    height: 61px
+    padding: 20px
+    padding-right: 50px
+    background: $color_gray_lighten
+    border: none
+  
+  .icon
+    position: absolute
+    bottom: 20px
+    right: 16px
+    cursor: pointer
+    transition: $transition
+
+
+.input-wrapper, .select-wrapper
+  @extend %input-wrapper
+
+
+.select-wrapper
+  .input
+    position: relative
+
+    &__options
+      position: absolute
+      top: calc( 100% + 10px )
+      left: 0
+      width: 100%
+      padding: 0
+      background: $color_gray_lighten
+      transition: $transition
+      transform: translateY(-10px)
+      opacity: 0
+      visibility: hidden
+      z-index: 2
+
+    &__option
+      color: lighten($color_black, 40%)
+      list-style-type: none
+      width: 100%
+      height: 40px
+      padding: 10px 20px
+      cursor: pointer
+      &:hover
+        color: $color_black
+  
+  &.open
+    .icon
+      transform: rotateZ(180deg)
+    .input__options
+      transform: translateY(-0px)
+      opacity: 1
+      visibility: visible
+          
+
+
+/* Product card */
+.card
+  position: relative
+  width: 100%
+  max-width: 335px
+
+  &__image
+    width: 100%
+    height: 400px
+    margin-bottom: 15px
+    // background: $color_gray_gradient
+
+  &__sale
+    color: $color_white
+    position: absolute
+    top: 25px
+    right: 25px
+    @include center-block
+    display: inline-flex
+    height: 43px
+    padding: 12px 20px
+    background: $color_orange
+
+  &__name
+    margin-bottom: 5px
+
+  &__price
+    margin-bottom: 15px
+    &-prev
+      position: relative
+      color: #B7B7B7
+      margin-left: 10px
+      &::before
+        content: ""
+        position: absolute
+        top: 50%
+        left: 0
+        width: 100%
+        height: 1px
+        background: $color_black
+    
+  &__button
+    width: 100%
+
+  &_big
+    max-width: 690px
+    max-width: 100%
+    .card__image
+      height: 781px
+    .card__button
+      max-width: 335px
+
+  &_cart
+    display: flex
+    width: 100%
+    max-width: 100%
+    .card__image
+      width: 100px
+      height: 100px
+      margin: 0
+      margin-right: 10px
+    .card__info
+      display: flex
+      align-items: flex-start
+      justify-content: space-between
+      flex-direction: column
+      height: 100px
+    .card__name-and-price
+      .name
+        max-width: 151px
+        margin-bottom: 5px
+      .price
+        @extend .card__price
+        &-prev
+          @extend .card__price-prev
+
+
+/* Modal */
+.modal
+  position: fixed
+  top: 0
+  bottom: 0
+  left: 0
+  width: 100%
+  max-width: 1600px
+  // height: 100vh
+  background: rgba($color_black, 0.6)
+  transition: $transition
+  opacity: 0
+  visibility: hidden
+  z-index: 10
+
+  &.open
+    opacity: 1
+    visibility: visible
+  
+  &__close
+    position: absolute
+    top: 0
+    left: 0
+    width: 100%
+    height: 100%
+    cursor: pointer
+
+  &__cart
+    position: absolute
+    top: 0
+    right: 0
+    width: 455px
+    height: auto
+    z-index: 2
+
+
+/* Cart */
+.cart
+  background: $color_white
+
+  &__block
+    width: 100%
+    height: auto
+    padding: 20px 100px 20px 40px
+    border-bottom: 1px solid #BDBDBD
+
+    &_header
+      display: flex
+      align-items: center
+      justify-content: flex-end
+      gap: 43px
+      height: 100px
+
+    &_info
+      .title
+        margin-bottom: 30px
+      .list
+        width: 100%
+        padding: 0
+        .item
+          @include side-block
+          width: 100%
+          margin-bottom: 20px
+
+    &_total
+      @include side-block
+
+    &_preview
+      padding-top: 40px
+      padding-bottom: 0
+      border-bottom: none
+      .card
+        margin-bottom: 40px
+
+    &_checkout
+      color: $color_white
+      @include side-block
+      align-items: center
+      height: 84px
+      background: $color_black
+      border-bottom: none
+      cursor: pointer

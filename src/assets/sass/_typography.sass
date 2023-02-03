@@ -1,0 +1,82 @@
+/* Fonts */
+
+// Rubik
+@mixin generate-font-face($font_file, $font_weight)
+  @include font-face("#{$path_fonts}/Inter/static/Inter-#{$font_file}.ttf", "Inter", "normal", $font_weight)
+
+@include  generate-font-face("Light", 300)
+@include  generate-font-face("Regular", 400)
+@include  generate-font-face("Medium", 500)
+@include  generate-font-face("SemiBold", 600)
+@include  generate-font-face("Bold", 700)
+@include  generate-font-face("ExtraBold", 800)
+@include  generate-font-face("Black", 900)
+
+
+/* Document */
+html, body
+  color: $color_black
+
+html, body, *
+  font-family: "Inter"
+  color: inherit
+
+
+/* Effects */
+.text
+  // text uppercase
+  &_uppercase
+    text-transform: uppercase
+
+  // text underline
+  &_underline
+    text-decoration: underline
+
+  // text colors
+  &_black
+    color: $color_black
+  &_dark
+    color: $color_dark
+  &_orange
+    color: $color_orange
+  &_white
+    color: $color_white
+  
+
+
+/* Text Size */
+.l
+  &_20
+    @include font(300, 20px, 24px)
+  &_40
+    @include font(300, 40px, 146%)
+
+.r
+  &_16
+    @include font(400, 16px, 19px)
+  &_18
+    @include font(400, 18px, 22px)
+
+.m
+  &_16
+    @include font(600, 16px, 19px)
+  &_18
+    @include font(500, 18px, 22px)
+  &_20
+    @include font(500, 20px, 24px)
+
+.sb
+  &_16
+    @include font(600, 16px, 19px)
+  &_24
+    @include font(600, 24px, 29px)
+  
+.b
+  &_14
+    @include font(700, 14px, 14px)
+  &_24
+    @include font(700, 24px, 29px)
+  &_40
+    @include font(700, 40px, 48px)
+
+   

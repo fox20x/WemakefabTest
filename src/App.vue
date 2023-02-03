@@ -1,8 +1,19 @@
 <template>
   <div id="app">
-    <router-view/>
+    <main-layout>
+      <router-view />
+    </main-layout>
   </div>
 </template>
 
-<style>
-</style>
+<script>
+import MainLayout from './layouts/MainLayout'
+
+export default {
+  components: {
+    MainLayout,
+  },
+};
+</script>
+
+<style></style>

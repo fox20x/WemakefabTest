@@ -1,0 +1,136 @@
+/* Normalize */
+*
+  margin: 0
+  padding: 0
+  box-sizing: border-box
+
+a
+  color: inherit
+  text-decoration: none
+  cursor: pointer
+
+ul
+  padding-left: 1em
+
+button
+  background: transparent
+  border: 0
+  cursor: pointer
+
+img
+  object-fit: contain
+  object-position: center
+
+input
+  font-size: inherit
+  color: inherit
+
+  // Hide display
+  &[type="file"]
+    position: absolute
+    display: none
+    opacity: 0
+    z-index: -1
+
+  // Delete arrow
+  &[type="number"]::-webkit-outer-spin-button,
+  &[type="number"]::-webkit-inner-spin-button
+    -webkit-appearance: none
+
+  &[type='number'],
+  &[type="number"]:hover,
+  &[type="number"]:focus
+    appearance: none
+    -moz-appearance: textfield
+
+  // Delete focus border
+  &[type="text"]:focus,
+  &[type="email"]:focus,
+  &[type="number"]:focus,
+  &[type="password"]:focus
+    outline: none
+
+
+/* Variables */
+$color_black: #000000
+$color_dark: #1B1B1B
+
+$color_gray: #BDBDBD
+$color_gray_lighten: #F5F5F5
+$color_gray_gradient: linear-gradient(0deg, rgba(0, 0, 0, 0.04), rgba(0, 0, 0, 0.04))
+
+$color_orange: #FF6B00
+
+$color_white: #FFFFFF
+
+$transition: .5s
+$transition_long: 1s
+$transition_short: .3s
+
+$path_images: '../assets/img'
+$path_fonts: '../assets/fonts'
+
+
+/* Mixins */
+@mixin flex
+  display: flex
+
+@mixin inline-flex
+  display: inline-flex
+
+@mixin side-block
+  @include flex
+  justify-content: space-between
+
+@mixin center-block
+  @include flex
+  align-items: center
+  align-content: center
+  justify-content: center
+
+@mixin center-x-block
+  @include flex
+  justify-content: center
+
+@mixin center-y-block
+  @include flex
+  align-items: center
+  align-content: center
+
+@mixin up-block
+  @include flex
+  align-items: flex-start
+
+@mixin down-block
+  @include flex
+  align-items: flex-end
+
+@mixin left-block
+  @include flex
+  justify-content: flex-start
+
+@mixin right-block
+  @include flex
+  justify-content: flex-end
+
+
+@mixin font($weight, $size, $height)
+  font-weight: $weight
+  font-size: $size
+  line-height: $height
+
+@mixin font-face($path, $family, $style, $weight)
+  @font-face
+    src: url($path) format("truetype")
+    font:
+      family: $family
+      style: $style
+      weight: $weight
+
+
+@mixin transition($x...)
+  -webkit-transition: $x
+  -moz-transition: $x
+  -ms-transition: $x
+  -o-transition: $x
+  transition: $x
