@@ -1,6 +1,6 @@
 <template>
   <main class="main">
-    <component-filter @filter="filter" />
+    <component-filter :products="products" @filter="filter" />
 
     <component-catalog :products="products" />
   </main>

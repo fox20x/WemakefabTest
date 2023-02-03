@@ -5,7 +5,8 @@
     "picture": "/catalog/Converse Chuck_70_Renew_High_Top.png",
     "price": 84.99,
     "currency": "$",
-    "sale": -40
+    "sale": -40,
+    "category": ["Sneakers"]
   },
   {
     "id": 2,
@@ -28,7 +29,8 @@
     "picture": "/catalog/Converse_Pro_Chuck_80.png",
     "price": 99.99,
     "currency": "$",
-    "sale": -35
+    "sale": -35,
+    "category": ["Pro"]
   },
   {
     "id": 5,

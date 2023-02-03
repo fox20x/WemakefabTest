@@ -7,7 +7,7 @@
         <li
           v-for="(option, i) in options"
           :key="i"
-          :value="option"
+          :data-value="option"
           class="input__option"
         >
           {{ option }}
@@ -40,7 +40,7 @@ export default {
       const el = e.target.closest(".input__option");
       if (!el) return;
 
-      const value = el.value;
+      const value = el.dataset.value;
       if (!value) return;
 
       this.component_value = value;
