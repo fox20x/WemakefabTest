@@ -87,7 +87,10 @@ export default Vue.extend({
       const filtered_category: Array<ProductId> =
         this.filterCategory(products_sale);
 
-      const filtered = _.intersectionWith(filtered_search, filtered_category);
+      const filtered: Array<ProductId> = _.intersectionWith(
+        filtered_search,
+        filtered_category
+      );
 
       this.$emit("filter", filtered);
     },

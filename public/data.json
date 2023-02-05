@@ -1,27 +1,27 @@
 [
   {
     "id": 1,
-    "name": "Converse Chuck 70 Renew High Top",
-    "picture": "/catalog/Converse Chuck_70_Renew_High_Top.png",
-    "price": 84.99,
-    "currency": "$",
-    "sale": -40,
-    "category": ["Sneakers"]
-  },
-  {
-    "id": 2,
     "name": "Converse Kids 70",
     "picture": "/catalog/Converse_Kids_70.png",
     "price": 49.99,
     "currency": "$"
   },
   {
-    "id": 3,
+    "id": 2,
     "name": "Converse Chuck 70",
     "picture": "/catalog/Converse_Chuck_70.png",
     "price": 49.99,
     "currency": "$",
     "sale": 0
+  },
+  {
+    "id": 3,
+    "name": "Converse Chuck 70 Renew High Top",
+    "picture": "/catalog/Converse Chuck_70_Renew_High_Top.png",
+    "price": 84.99,
+    "currency": "$",
+    "sale": -40,
+    "category": ["Sneakers"]
   },
   {
     "id": 4,

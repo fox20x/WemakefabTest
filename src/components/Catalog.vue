@@ -10,10 +10,10 @@
         v-for="(product, i) in products"
         :key="i"
         class="grid-item catalog__item"
-        :class="{ catalog__item_big: i == 0 }"
+        :class="{ catalog__item_big: i == 2 }"
       >
         <card
-          :class="{ card_big: i == 0 }"
+          :class="{ card_big: i == 2 }"
           :id="product.id"
           :name="product.name"
           :picture="product.picture"
